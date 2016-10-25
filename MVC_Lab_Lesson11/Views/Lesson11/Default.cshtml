@@ -1,0 +1,39 @@
+﻿@model MVC_Lab_Lesson11.Models.MyModel
+
+@{
+    ViewBag.Title = "Default";
+}
+
+<h2>Default</h2>
+
+@using (Html.BeginForm()) 
+{
+    <div class="form-horizontal">
+
+        @Html.LabelFor(m => m.name)
+        @Html.TextBoxFor(m => m.name)
+        <br />
+
+        @Html.LabelFor(m => m.value)
+        @Html.TextAreaFor(m => m.value)
+        <br />
+
+        <div>
+            @Html.LabelFor(m => m.value)
+            <pre>
+            @Html.Raw(Model.value)
+            </pre>
+        </div>
+        <div>
+            <span>
+                [ValidateInput(false)] // 解除 Action 的指令檢查
+            </span>
+        </div>
+
+        <input type="submit" value="GO" class="btn btn-default" />
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
